@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+{% load static %}
+<!--
+ // WEBSITE: https://themefisher.com
+ // TWITTER: https://twitter.com/themefisher
+ // FACEBOOK: https://www.facebook.com/themefisher
+ // GITHUB: https://github.com/themefisher/
+-->
+
+<html lang="zxx">
+
+<head>
+  <meta charset="utf-8">
+  <title>Bedding | App</title>
+
+  <!-- mobile responsive meta -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  
+  <!-- theme meta -->
+  <meta name="theme-name" content="agen" />
+  
+  <!-- ** Plugins Needed for the Project ** -->
+  <!-- Bootstrap -->
+  <link rel="stylesheet" href="{% static 'home/plugins/bootstrap/bootstrap.min.css' %}">
+  <!-- slick slider -->
+  <link rel="stylesheet" href="{% static 'home/plugins/slick/slick.css' %}">
+  <!-- themefy-icon -->
+  <link rel="stylesheet" href="{% static 'home/plugins/themify-icons/themify-icons.css' %}">
+  <!-- venobox css -->
+  <link rel="stylesheet" href="{% static 'home/plugins/venobox/venobox.css' %}">
+  <!-- card slider -->
+  <link rel="stylesheet" href="{% static 'home/plugins/card-slider/css/style.css' %}">
+
+  <!-- Main Stylesheet -->
+  <link href="{% static 'home/css/style.css' %}" rel="stylesheet">
+  
+  <!--Favicon-->
+  <link rel="shortcut icon" href="{% static 'home/images/favicon.ico' %}" type="image/x-icon">
+  <link rel="icon" href="{% static 'home/images/favicon.ico' %}" type="image/x-icon">
+
+  <style>.info{
+    list-style:None;
+    background-color:#de5454;
+    color:white;
+    box-shadow: 12px 12px 12px #e61c66;
+    text-align: center;}
+
+    .success{
+    list-style:None;
+    background-color:#7ba42e;
+    color:white;
+    box-shadow: 12px 12px 12px #e61c66;
+    text-align: center;}
+
+    .alert {
+      padding: 20px;
+      background-color: #f44336;
+      color: white;
+      opacity: 1;
+      transition: opacity 0.6s;
+      margin-bottom: 15px;
+    }
+    
+    .alert.success {background-color: #04AA6D;}
+    .alert.info {background-color: #2196F3;}
+    .alert.warning {background-color: #ff9800;}
+    
+    .closebtn {
+      margin-left: 15px;
+      color: white;
+      font-weight: bold;
+      float: right;
+      font-size: 22px;
+      line-height: 20px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+    
+    .closebtn:hover {
+      color: black;
+    }
+    </style>
+
+</head>
+
+<body>
+  
+
+<header class="navigation fixed-top">
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <a class="navbar-brand" href="/home"><img src="{% static 'home/images/logo.png' %}" height="35px" alt="Egen"></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation"
+      aria-controls="navigation" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse text-center" id="navigation">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="/v-home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/v-home">All-Items</a>
+        </li>
+
+
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="services.html">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="blog.html">Blog</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="portfolio.html">Portfolio</a>
+        </li> -->
+
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Pages</a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="team.html">Team</a>
+            <a class="dropdown-item" href="team-single.html">Team Details</a>
+            <a class="dropdown-item" href="career.html">Career</a>
+            <a class="dropdown-item" href="career-single.html">Career Details</a>
+            <a class="dropdown-item" href="blog-single.html">Blog Details</a>
+            <a class="dropdown-item" href="pricing.html">Pricing</a></a>
+            <a class="dropdown-item" href="faqs.html">FAQ's</a>
+          </div>
+        </li> -->
+
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="/logout">Logout</a>
+        </li> -->
+
+
+        
+        
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle fa fa-user"  href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" ><img style="height: 40px; " src="{% static 'images/th2-removebg-preview.jpg' %}" alt=""></a>
+          <div class="dropdown-menu">
+            <a class="dropdown-item" href="#">{{ request.user.username }} </a>
+        
+            <a class="dropdown-item" href="/logout">Logout</a>
+          </div>
+        </li>
+
+
+      </ul>
+    </div>
+  </nav>
+
+  {% if messages %}
+  {% for message in messages %}
+  <div {% if message.tags %} class="alert {{message.tags}}" {% endif %}>
+    <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+    <strong>{{message}}</strong> 
+  </div>
+  {% endfor %}
+  {% endif %} 
+</header>
+
+<!-- page-title -->
+<section class=" bg-cover" style="height: 140px ;" data-background="{% static 'home/images/backgrounds/page-title.jpg' %}">
+    <div class="container" >
+      <div class="row">
+        <div class="col-12 text-center">
+          <!-- <h1 class="display-1 text-white font-weight-bold font-primary">Add item</h1> -->
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- /page-title -->
+
+<!-- blog -->
+<section class="section">
+  <center>  <h3 >Don't miss out on this opportunity to get the best bedding at your lowest price </h3></center>
+
+
+  <div class="container">
+    <div class="row">
+{% for i in all_items %}
+
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="card">
+          <img src="{{i.image.url}}" style="height: 200px;" style="width:400px" alt="post-thumb" class="card-img-top mb-2">
+          <div class="card-body p-0">
+            <time>{{i.exp_date}}</time>
+            <a href="/bid-item/{{i.id}}/" class="h4 card-title d-block my-3 text-dark hover-text-underline">{{i.name}}</a>
+            <p>{{i.description |slice:":50"}}  <a href="/bid-item/{{i.id}}/" class="btn btn-transparent">Read more</a></p>
+           
+          </div>
+        </article>
+      </div>
+
+{% endfor %}
+
+
+      <!-- <div class="col-lg-4 col-md-6 mb-4">
+        <article class="card">
+          <img src="images/blog/post-2.jpg" alt="post-thumb" class="card-img-top mb-2">
+          <div class="card-body p-0">
+            <time>January 15, 2018</time>
+            <a href="blog-single.html" class="h4 card-title d-block my-3 text-dark hover-text-underline">How These Different
+              Book Covers Reflect the Design</a>
+            <a href="blog-single.html" class="btn btn-transparent">Read more</a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="card">
+          <img src="images/blog/post-3.jpg" alt="post-thumb" class="card-img-top mb-2">
+          <div class="card-body p-0">
+            <time>January 15, 2018</time>
+            <a href="blog-single.html" class="h4 card-title d-block my-3 text-dark hover-text-underline">How These Different
+              Book Covers Reflect the Design</a>
+            <a href="blog-single.html" class="btn btn-transparent">Read more</a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="card">
+          <img src="images/blog/post-1.jpg" alt="post-thumb" class="card-img-top mb-2">
+          <div class="card-body p-0">
+            <time>January 15, 2018</time>
+            <a href="blog-single.html" class="h4 card-title d-block my-3 text-dark hover-text-underline">How These Different
+              Book Covers Reflect the Design</a>
+            <a href="blog-single.html" class="btn btn-transparent">Read more</a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="card">
+          <img src="images/blog/post-2.jpg" alt="post-thumb" class="card-img-top mb-2">
+          <div class="card-body p-0">
+            <time>January 15, 2018</time>
+            <a href="blog-single.html" class="h4 card-title d-block my-3 text-dark hover-text-underline">How These Different
+              Book Covers Reflect the Design</a>
+            <a href="blog-single.html" class="btn btn-transparent">Read more</a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="card">
+          <img src="images/blog/post-3.jpg" alt="post-thumb" class="card-img-top mb-2">
+          <div class="card-body p-0">
+            <time>January 15, 2018</time>
+            <a href="blog-single.html" class="h4 card-title d-block my-3 text-dark hover-text-underline">How These Different
+              Book Covers Reflect the Design</a>
+            <a href="blog-single.html" class="btn btn-transparent">Read more</a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="card">
+          <img src="images/blog/post-1.jpg" alt="post-thumb" class="card-img-top mb-2">
+          <div class="card-body p-0">
+            <time>January 15, 2018</time>
+            <a href="blog-single.html" class="h4 card-title d-block my-3 text-dark hover-text-underline">How These Different
+              Book Covers Reflect the Design</a>
+            <a href="blog-single.html" class="btn btn-transparent">Read more</a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="card">
+          <img src="images/blog/post-1.jpg" alt="post-thumb" class="card-img-top mb-2">
+          <div class="card-body p-0">
+            <time>January 15, 2018</time>
+            <a href="blog-single.html" class="h4 card-title d-block my-3 text-dark hover-text-underline">How These Different
+              Book Covers Reflect the Design</a>
+            <a href="blog-single.html" class="btn btn-transparent">Read more</a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="card">
+          <img src="images/blog/post-2.jpg" alt="post-thumb" class="card-img-top mb-2">
+          <div class="card-body p-0">
+            <time>January 15, 2018</time>
+            <a href="blog-single.html" class="h4 card-title d-block my-3 text-dark hover-text-underline">How These Different
+              Book Covers Reflect the Design</a>
+            <a href="blog-single.html" class="btn btn-transparent">Read more</a>
+          </div>
+        </article>
+      </div>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <article class="card">
+          <img src="images/blog/post-3.jpg" alt="post-thumb" class="card-img-top mb-2">
+          <div class="card-body p-0">
+            <time>January 15, 2018</time>
+            <a href="blog-single.html" class="h4 card-title d-block my-3 text-dark hover-text-underline">How These Different
+              Book Covers Reflect the Design</a>
+            <a href="blog-single.html" class="btn btn-transparent">Read more</a>
+          </div>
+        </article>
+      </div> -->
+
+
+
+
+    </div>
+  </div>
+</section>
+<!-- /blog -->
+
+
+<!-- footer -->
+<footer class="bg-secondary position-relative">
+    <img src="{% static 'home/images/backgrounds/map.png' %}" class="img-fluid overlay-image" alt="">
+    
+    
+    
+    <!-- <div class="section">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-3 col-6">
+            <h4 class="text-white mb-5">About</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-light d-block mb-3">Service</a></li>
+              <li><a href="#" class="text-light d-block mb-3">Conatact</a></li>
+              <li><a href="#" class="text-light d-block mb-3">About us</a></li>
+              <li><a href="#" class="text-light d-block mb-3">Blog</a></li>
+              <li><a href="#" class="text-light d-block mb-3">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-3 col-6">
+            <h4 class="text-white mb-5">Company</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-light d-block mb-3">Service</a></li>
+              <li><a href="#" class="text-light d-block mb-3">Conatact</a></li>
+              <li><a href="#" class="text-light d-block mb-3">About us</a></li>
+              <li><a href="#" class="text-light d-block mb-3">Blog</a></li>
+              <li><a href="#" class="text-light d-block mb-3">Support</a></li>
+            </ul>
+          </div>
+          <div class="col-md-6">
+            <div class="bg-white p-4">
+              <h3>Contact us</h3>
+              <form action="#">
+                <input type="text" id="name" name="name" class="form-control mb-4 px-0" placeholder="Full name">
+                <input type="text" id="name" name="name" class="form-control mb-4 px-0" placeholder="Email address">
+                <textarea name="message" id="message" class="form-control mb-4 px-0" placeholder="Message"></textarea>
+                <button class="btn btn-primary" type="submit">Send</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div> -->
+
+
+    <div class="pb-4">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-left">
+            <p class="text-light mb-0">Copyright &copy; 2023 a theme by <a class="text-gradient-primary" href="http://www.cordscable.com/">cordscable.com</a>
+            </p>
+          </div>
+          <div class="col-md-6">
+            <ul class="list-inline text-md-right text-center">
+              <li class="list-inline-item"><a class="d-block p-3 text-white" href="#"><i class="ti-facebook"></i></a></li>
+              <li class="list-inline-item"><a class="d-block p-3 text-white" href="#"><i class="ti-twitter-alt"></i></a></li>
+              <li class="list-inline-item"><a class="d-block p-3 text-white" href="#"><i class="ti-instagram"></i></a></li>
+              <li class="list-inline-item"><a class="d-block p-3 text-white" href="#"><i class="ti-github"></i></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <!-- /footer -->
+  
+  <!-- jQuery -->
+  <script src="{% static 'home/plugins/jQuery/jquery.min.js' %}"></script>
+  <!-- Bootstrap JS -->
+  <script src="{% static 'home/plugins/bootstrap/bootstrap.min.js' %}"></script>
+  <!-- slick slider -->
+  <script src="{% static 'home/plugins/slick/slick.min.js' %}"></script>
+  <!-- venobox -->
+  <script src="{% static 'home/plugins/venobox/venobox.min.js' %}"></script>
+  <!-- shuffle -->
+  <script src="{% static 'home/plugins/shuffle/shuffle.min.js' %}"></script>
+  <!-- apear js -->
+  <script src="{% static 'home/plugins/counto/apear.js' %}"></script>
+  <!-- counter -->
+  <script src="{% static 'home/plugins/counto/counTo.js' %}"></script>
+  <!-- card slider -->
+  <script src="{% static 'home/plugins/card-slider/js/card-slider-min.js' %}"></script>
+  <!-- google map -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcABaamniA6OL5YvYSpB3pFMNrXwXnLwU&libraries=places"></script>
+  <script src="{% static 'home/plugins/google-map/gmap.js' %}"></script>
+  
+  <!-- Main Script -->
+  <script src="{% static 'home/js/script.js' %}"></script>
+  
+  </body>
+  </html>
+  
