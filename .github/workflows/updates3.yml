@@ -1,0 +1,26 @@
+name: Upload Website
+
+on:
+  push:
+    branches:
+    - main
+
+env:
+  AWS_S3_BUCKET: easyreach.today                   # set this to your preferred AWS region, e.g. us-west-1
+  AWS_ACCESS_KEY_ID: AKIAZXIYCPNLS5GSTORK           # set this to your Amazon ECR repository name
+  AWS_SECRET_ACCESS_KEY: bfoCixtf3Jns0HcEpHjSBymSp8Nt/PsJu8gGU+AF                 # set this to your Amazon ECS service name
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@master
+    - uses: jakejarvis/s3-sync-action@master
+      with:
+        args: --acl public-read --follow-symlinks --delete
+      env:
+        AWS_S3_BUCKET: ${{ secrets.AWS_S3_BUCKET }}
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
+        SOURCE_DIR: 'public'      # optional: defaults to entire repository
