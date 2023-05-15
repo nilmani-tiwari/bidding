@@ -26,4 +26,4 @@ jobs:
         AWS_ACCESS_KEY_ID: AKIAZXIYCPNLS5GSTORK
         AWS_SECRET_ACCESS_KEY: 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
         AWS_REGION: 'us-east-1'   # optional: defaults to us-east-1
-        SOURCE_DIR: 'public'      # optional: defaults to entire repository
+        SOURCE_DIR: 'bedapp'      # optional: defaults to entire repository
