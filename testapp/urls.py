@@ -18,25 +18,26 @@ from django.urls import path,include
 from bidapp.views import *
 from django.conf import settings
 from django.conf.urls.static import static
+from .views import *
 
 urlpatterns = [
-    path("admin/", admin.site.urls),
-    path('registration', register_user, name='register'),
-    path('logout/', logoutUser, name='logoutUser'),
-    path('home/', home, name='home'),
-     path('add-items/', add_items, name='add_items'),
-     path('all-items/', all_items, name='all_items'),
-     path('all-vender/', all_vender, name='all_vender'),
-     path('loest-bidder/<item_id>/', loest_vender, name='loest_vender'),
-     path('accounts/login/', login_user, name='login'),
-    path('', login_user, name='login'),
+    # path("admin/", admin.site.urls),
+    # path('registration', register_user, name='register'),
+    # path('logout/', logoutUser, name='logoutUser'),
+    # path('home/', home, name='home'),
+    #  path('add-items/', add_items, name='add_items'),
+    #  path('all-items/', all_items, name='all_items'),
+    #  path('all-vender/', all_vender, name='all_vender'),
+    #  path('loest-bidder/<item_id>/', loest_vender, name='loest_vender'),
+    #  path('accounts/login/', login_user, name='login'),
+    # path('', login_user, name='login'),
     
-    ################################################## 
-    path('v-home/', vhome, name='vhome'),
-    path('bid-item/<item_id>/', bid_item, name='bid_item'),
+    # ################################################## 
+    # path('v-home/', vhome, name='vhome'),
+    # path('bid-item/<item_id>/', bid_item, name='bid_item'),
     
-    ##################################################
-    path('test/', include('testapp.urls'))
+    # ##################################################
+     path('speech/', test_speech, name='test'),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)     
